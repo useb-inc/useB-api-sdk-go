@@ -7,12 +7,12 @@ import (
 )
 
 const (
-	URLOcrIdcard               string = "/orc/idcard-driver"
-	URLOcrDriver               string = "/orc/idcard-driver"
-	URLOcrPassport             string = "/orc/passport"
-	URLOcrPassportOverseas     string = "/orc/passport-overseas"
-	URLOcrAlien                string = "/orc/alien"
-	URLOcrBusinessRegistration string = "/orc-doc/business-registration"
+	URLOcrIdcard               string = "/ocr/idcard-driver"
+	URLOcrDriver               string = "/ocr/idcard-driver"
+	URLOcrPassport             string = "/ocr/passport"
+	URLOcrPassportOverseas     string = "/ocr/passport-overseas"
+	URLOcrAlien                string = "/ocr/alien"
+	URLOcrBusinessRegistration string = "/ocr-doc/business-registration"
 )
 
 type Ocr struct {
