@@ -12,8 +12,14 @@ const (
 )
 
 type UsebAPI struct {
-	AuthAPI   *resources.Auth
-	StatusAPI *resources.Status
+	AuthAPI            *resources.Auth
+	StatusAPI          *resources.Status
+	OpenbankAPI        *resources.Openbank
+	FirmbankAPI        *resources.Firmbank
+	FirmbankPremiumAPI *resources.FirmbankPremium
+	// OcrAPI *resources.Ocr
+	// MaskingAPI *resources.Masking
+	// FaceAPI *resources.Face
 }
 
 func NewUsebAPI(clientId, clientSecret string) (*UsebAPI, error) {
@@ -27,10 +33,16 @@ func NewUsebAPI(clientId, clientSecret string) (*UsebAPI, error) {
 
 	auth := resources.NewAuth(clientId, clientSecret)
 	status := resources.NewStatus(auth)
+	openbank := resources.NewOpenbank(auth)
+	firmbank := resources.NewFirmbank(auth)
+	firmbankpremium := resources.NewFirmbankPremium(auth)
 
 	usebapi := &UsebAPI{
-		AuthAPI:   auth,
-		StatusAPI: status,
+		AuthAPI:            auth,
+		StatusAPI:          status,
+		OpenbankAPI:        openbank,
+		FirmbankAPI:        firmbank,
+		FirmbankPremiumAPI: firmbankpremium,
 	}
 
 	return usebapi, nil
