@@ -17,9 +17,9 @@ type UsebAPI struct {
 	OpenbankAPI        *resources.Openbank
 	FirmbankAPI        *resources.Firmbank
 	FirmbankPremiumAPI *resources.FirmbankPremium
-	// OcrAPI *resources.Ocr
-	// MaskingAPI *resources.Masking
-	// FaceAPI *resources.Face
+	OcrAPI             *resources.Ocr
+	MaskingAPI         *resources.Masking
+	FaceAPI            *resources.Face
 }
 
 func NewUsebAPI(clientId, clientSecret string) (*UsebAPI, error) {
@@ -36,6 +36,9 @@ func NewUsebAPI(clientId, clientSecret string) (*UsebAPI, error) {
 	openbank := resources.NewOpenbank(auth)
 	firmbank := resources.NewFirmbank(auth)
 	firmbankpremium := resources.NewFirmbankPremium(auth)
+	ocr := resources.NewOcr(auth)
+	masking := resources.NewMasking(auth)
+	face := resources.NewFace(auth)
 
 	usebapi := &UsebAPI{
 		AuthAPI:            auth,
@@ -43,6 +46,9 @@ func NewUsebAPI(clientId, clientSecret string) (*UsebAPI, error) {
 		OpenbankAPI:        openbank,
 		FirmbankAPI:        firmbank,
 		FirmbankPremiumAPI: firmbankpremium,
+		OcrAPI:             ocr,
+		MaskingAPI:         masking,
+		FaceAPI:            face,
 	}
 
 	return usebapi, nil
