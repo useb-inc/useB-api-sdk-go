@@ -8,6 +8,8 @@ import (
 
 const (
 	URLOpenbankRealname string = "/realname"
+	URLOpenbankSend     string = "/send"
+	URLOpenbankVerify   string = "/verify"
 )
 
 type Openbank struct {
@@ -21,7 +23,7 @@ func NewOpenbank(auth *Auth) *Openbank {
 		Host: BANKING_BASE_HOST,
 	}
 	realname := callAPIMethod[openbank.RealnameRequest, openbank.RealnameResponse](base, auth, http.MethodPost, URLOpenbankRealname)
-	send := callAPIMethod[openbank.SendRequest, openbank.SendResponse](base, auth, http.MethodPost, URLOpenbankRealname)
+	send := callAPIMethod[openbank.SendRequest, openbank.SendResponse](base, auth, http.MethodPost, URLOpenbankSend)
 	verify := callAPIMethod[openbank.VerifyRequest, openbank.VerifyResponse](base, auth, http.MethodPost, URLOpenbankRealname)
 
 	return &Openbank{
