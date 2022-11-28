@@ -11,7 +11,7 @@ useB API 는 고객의 신원인증을 API 호출을 통해 간단하게 조회 
 아래 명령어를 통해 `useb-api-sdk-go`를 설치할 수 있습니다.
 
 ```bash
-$ go get github.com/useb-kr/useb-api-sdk-go
+$ go get github.com/useb-inc/useb-api-sdk-go
 ```
 
 ## API 호출 예제
@@ -25,14 +25,14 @@ $ go get github.com/useb-kr/useb-api-sdk-go
 package main
 
 import (
-    "fmt"
-    "github.com/useb-inc/useb-api-sdk-go"
-    "github.com/useb-inc/useb-api-sdk-go/interfaces/status"
+	"fmt"
+	"github.com/useb-inc/useb-api-sdk-go"
+	"github.com/useb-inc/useb-api-sdk-go/interfaces/status"
 )
 
 func main() {
-    // useB API 호출을 위한 클라이언트 생성
-    api, err := usebapi.NewUsebAPI("YOUR_API_KEY", "YOUR_API_SECRET")
+	// useB API 호출을 위한 클라이언트 생성
+	api, err := usebapi.NewUsebAPI("YOUR_API_KEY", "YOUR_API_SECRET")
 	if err != nil {
 		panic(err)
 	}
@@ -44,7 +44,7 @@ func main() {
 	}
 	res, err := api.StatusAPI.Idcard(&req)
 	if err != nil {
-        panic(err)
+		panic(err)
 	}
 
 	fmt.Println(string(res.Message))
